@@ -4,7 +4,8 @@ const multer = require('multer');
 const path = require('path');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Get port from environment variable or default to 3000
+
 app.use(cors({
      origin: 'https://icy-coast-04e058400.5.azurestaticapps.net', // Allow all origins
     methods: ['GET', 'POST'], // Allow specific HTTP methods
@@ -243,6 +244,6 @@ app.get('/getStationGeoJson/:stName', async (req, res) => {
 // });
 
 
-app.listen(port,'0.0.0.0' ,() => {
+app.listen(port ,() => {
     console.log(`Server running at http://localhost:${port}`);
 });
