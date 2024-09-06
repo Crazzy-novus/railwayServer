@@ -42,6 +42,21 @@ async function run() {
 }
 run().catch(console.dir);
 
+app.get('/', async(req, res) => {
+    try {
+        await client.connect();
+        const db = client.db('railway');
+        const collection = db.collection('officers');
+        
+        res.status(200).send('Officer registered successfully');
+    } catch (error) {
+        res.status(500).send('Error registering officer');
+        console.log(error);
+    } finally {
+        await client.close();
+    }
+});
+
 
 // Register Route
 app.post('/register', async (req, res) => {
