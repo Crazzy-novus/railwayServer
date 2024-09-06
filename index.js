@@ -6,7 +6,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const app = express();
 const port = 3000;
 app.use(cors({
-    origin: '*', // Allow all origins
+     origin: 'https://icy-coast-04e058400.5.azurestaticapps.net', // Allow all origins
     methods: ['GET', 'POST'], // Allow specific HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'] // Allow specific headers
 }));
